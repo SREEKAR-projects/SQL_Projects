@@ -10,6 +10,18 @@ Staging Tables: The importance of creating copies of raw data (staging tables) t
 Date Conversion: Using STRING_TO_DATE() to convert text dates to a proper DATE data type for time-series analysis and ALTER TABLE ... MODIFY COLUMN to change the column's data type.
 
 
+Exploratory Data Analysis (EDA) Project (Practical Application)
 
+Concept: Exploring data to find insights, trends, and patterns, often done in conjunction with data cleaning.
+Basic Analysis:
+Finding MAX() values for key metrics (e.g., max total laid off, max percentage laid off).
+Aggregating data by company, industry, country, year, and stage using GROUP BY and SUM().
+Determining date ranges (MIN() and MAX() dates) of the dataset.
+Time-Series Analysis:
+Extracting year (YEAR() function) or month (SUBSTRING() on date) for time-based grouping.
+Rolling Sum (Cumulative Total): Using window functions (SUM() OVER (ORDER BY date/month)) to calculate cumulative layoffs over time.
+Ranking Analysis:
+Ranking companies by total layoffs per year using DENSE_RANK() with PARTITION BY year and ORDER BY total laid off.
+Combining multiple CTEs to build complex queries for layered analysis.
 
 
