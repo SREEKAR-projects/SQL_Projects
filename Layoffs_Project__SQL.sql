@@ -1,3 +1,5 @@
+---
+
 SELECT* ,
 
 ROW_NUMBER() OVER(PARTITION BY company, location, industry, total_laid_off, percentage_laid_off, `date`, stage, country, funds_raised_millions)
