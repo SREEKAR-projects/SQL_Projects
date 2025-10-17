@@ -1,4 +1,4 @@
--- EDA
+-- EDA --
 
 select*
 from layoffs_staging2;
