@@ -1,4 +1,4 @@
-```sql
+
 /*
 OBJECTIVE BRIEFING: EXPLORE THE MENU ITEMS TABLE (EXPLORATORY)
 
@@ -20,7 +20,7 @@ The objective for the Taste of the World Cafe project was to explore the `menu i
     *   What is the average dish price within each category?
 
 */
-```
+
 select count(menu_item_id) as total_iteams
 from menu_items;
 
