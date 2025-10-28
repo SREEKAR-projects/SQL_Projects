@@ -54,3 +54,79 @@ from layoffs_staging2
 where row_num >1;
 
 /* Standardizing the data */
+
+select distinct company, trim(company)
+from layoffs_staging2;
+
+update layoffs_staging2
+set company = trim(company);
+
+select*
+from layoffs_staging2;
+
+select distinct industry
+from layoffs_staging2
+order by industry;
+
+update layoffs_staging2
+set industry = 'Crypto'
+where industry like 'Crypto%';
+
+update layoffs_staging2
+set country = trim('United States')
+where country like trim('United States.');
+
+select distinct country
+from layoffs_staging2
+order by country;
+
+UPDATE layoffs_staging2
+SET `date` = STR_TO_DATE(`date`, '%m/%d/%Y');
+
+ALTER TABLE layoffs_staging2
+MODIFY `date` DATE;
+
+select*
+from layoffs_staging2
+where industry is null or industry = "";
+
+update layoffs_staging2
+set industry = null
+where industry = "";
+
+SELECT t1.industry, t2.industry
+from layoffs_staging2 as t1
+JOIN layoffs_staging2  as t2
+ON t1.company = t2.company
+WHERE (t1.industry IS NULL OR t1.industry = '')
+AND t2.industry IS NOT NULL;
+
+select*
+from layoffs_staging2
+where industry is null or industry = "";
+
+UPDATE layoffs_staging2 t1
+JOIN layoffs_staging2 t2
+ON t1.company = t2.company
+SET t1.industry = t2.industry
+WHERE t1.industry IS NULL
+AND t2.industry IS NOT NULL;
+
+select*
+from layoffs_staging2
+where company like "Air%";
+
+select*
+from layoffs_staging2
+where total_laid_off is null and percentage_laid_off is null;
+
+delete
+from layoffs_staging2
+where total_laid_off is null and percentage_laid_off is null;
+
+select*
+from layoffs_staging2
+where total_laid_off is null and percentage_laid_off is null
+
+
+
