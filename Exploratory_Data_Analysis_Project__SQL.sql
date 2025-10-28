@@ -69,9 +69,11 @@ with Company_year (company, years, total_laid_off) as
 select company, year(`date`), sum(total_laid_off)
 from layoffs_staging2
 group by company, year(`date`)
-)
-select *, dense_rank() over (partition by years order by total_laid_off desc) as RANKING
+) , Company_year_rank as
+(select *, dense_rank() over (partition by years order by total_laid_off desc) as RANKING
 from company_year
 where years is not null
-order by RANKING asc;
-
+)
+select *
+from Company_year_rank
+where RANKING <=5;
